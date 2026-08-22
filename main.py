@@ -34,6 +34,10 @@ class ExpenseTracker:
 
         return self.total
 
+    def show_expense(self):
+        for track in self.expenses_list:
+            print(f"[{track["id"]}] - Amount: {track["amount"]}$ For {track["description"]} --> {track["category"]}") 
+
 
 
 
@@ -45,8 +49,8 @@ class ExpenseTracker:
 # acc = ExpenseTracker()
 # acc1 = ExpenseTracker()
 
-# acc.add_expense(250 , "food" , "lunch")
-# acc.add_expense(120 , "taxi" , "Transport")
+# acc.add_expense(250 , "Food" , "Lunch")
+# acc.add_expense(120 , "Transport" , "Taxi")
 
 # print(acc.expenses_list)
 
@@ -55,3 +59,5 @@ class ExpenseTracker:
 # print(acc.expenses_list)
 
 # print(acc.total_expense())
+
+# acc.show_expense()
