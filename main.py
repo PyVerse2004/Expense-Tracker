@@ -19,13 +19,36 @@ class ExpenseTracker:
         }
         self.t_id +=1
         self.expenses_list.append(track)
+
+    def delete_expense(self , item):
+        self.expenses_list.pop(item-1)
         
 
-# acc = ExpenseTracker(255 , "food" , "description")
-
-# acc.add_expense()
 
 
-# acc1 = ExpenseTracker(2 , "foodsdaad" , "dn")
-# acc.add_expense()
-# print(acc.expenses_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+acc = ExpenseTracker(255 , "food" , "description")
+
+acc.add_expense()
+
+
+acc1 = ExpenseTracker(2 , "foodsdaad" , "dn")
+acc.add_expense()
+print(acc.expenses_list)
+acc.delete_expense(2)
+print(acc.expenses_list)
