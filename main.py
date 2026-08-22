@@ -7,5 +7,25 @@ class ExpenseTracker:
         self.category = category
         self.description = description
         self.date = datetime.now()
+        self.expenses_list = []
+
+    def add_expense(self):
+        track = {
+            "id" : self.t_id , 
+            "amount" : self.amount , 
+            "category" : self.category , 
+            "description" : self.description , 
+            "date" : self.date
+        }
+        self.t_id +=1
+        self.expenses_list.append(track)
+        
+
+# acc = ExpenseTracker(255 , "food" , "description")
+
+# acc.add_expense()
 
 
+# acc1 = ExpenseTracker(2 , "foodsdaad" , "dn")
+# acc.add_expense()
+# print(acc.expenses_list)
