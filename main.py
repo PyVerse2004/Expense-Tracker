@@ -23,7 +23,9 @@ class ExpenseTracker:
         self.t_id +=1
 
     def delete_expense(self , item):
-        self.expenses_list.pop(item-1)
+        for track in self.expenses_list:
+            if track["id"] == item:
+                self.expenses_list.remove(track)
         
 
     def total_expense(self):
@@ -46,18 +48,18 @@ class ExpenseTracker:
 
 
 
-# acc = ExpenseTracker()
-# acc1 = ExpenseTracker()
+acc = ExpenseTracker()
+acc1 = ExpenseTracker()
 
-# acc.add_expense(250 , "Food" , "Lunch")
-# acc.add_expense(120 , "Transport" , "Taxi")
+acc.add_expense(250 , "Food" , "Lunch")
+acc.add_expense(120 , "Transport" , "Taxi")
 
-# print(acc.expenses_list)
+print(acc.expenses_list)
 
-# # acc.delete_expense(1)
+acc.delete_expense(1)
 
-# print(acc.expenses_list)
+print(acc.expenses_list)
 
-# print(acc.total_expense())
+print(acc.total_expense())
 
-# acc.show_expense()
+acc.show_expense()
