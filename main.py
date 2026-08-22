@@ -26,7 +26,7 @@ class ExpenseTracker:
         for track in self.expenses_list:
             if track["id"] == item:
                 self.expenses_list.remove(track)
-        
+            return
 
     def total_expense(self):
         self.total = 0
