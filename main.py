@@ -42,7 +42,10 @@ class ExpenseTracker:
         for track in self.expenses_list:
             print(f"[{track["id"]}] - Amount: {track["amount"]}$ For {track["description"]} --> {track["category"]}") 
 
-
+    def search_by_category(self , category):
+        for track in self.expenses_list :
+            if track["category"] == category:
+                print(track)
     
 
 
@@ -55,13 +58,17 @@ acc1 = ExpenseTracker()
 
 acc.add_expense(250 , "Food" , "Lunch")
 acc.add_expense(120 , "Transport" , "Taxi")
+acc.add_expense(120 , "Transport" , "Snapp")
+
 
 print(acc.expenses_list)
 
-acc.delete_expense(2)
+# acc.delete_expense(2)
 
 print(acc.expenses_list)
 
 print(acc.total_expense())
 
 acc.show_expense()
+
+acc.search_by_category("Transport")
