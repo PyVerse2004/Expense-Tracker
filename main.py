@@ -1,32 +1,47 @@
-from datetime import datetime
+import json
+from datetime import date
 
 class ExpenseTracker:
-    def __init__(self):
+    def __init__(self , filename="Expenses.json"):
+        self.filename = filename
         self.expenses_list = []
         self.t_id = 1
+        
+    def save_file(self):
+        with open(self.filename , "w") as file :
+            json.dump(self.expenses_list , file)
+
+    def load_file(self):
+        with open(self.filename , "r") as file :
+            json.load(file)
 
     def add_expense(self, amount , category , description):
         self.amount = amount
         self.category = category
         self.description = description
-        self.date = datetime.now()
+        self.date = date.today()
+        self.dt = print(self.date)
         
         track = {
             "id" : self.t_id , 
             "amount" : self.amount , 
             "category" : self.category , 
             "description" : self.description , 
-            "date" : self.date
+            "date" : self.dt
         }
         
         self.expenses_list.append(track)
+        self.save_file()
         self.t_id +=1
-
+        
     def delete_expense(self , item):
-        for track in self.expenses_list:
-            if track["id"] == item:
-                self.expenses_list.remove(track)
-            return
+
+        with open(self.filename , "r") as f:
+            t = json.load(f)
+
+        for track in t:
+            if item == track["id"]:
+                self.expenses_list.remove(track)    
 
     def total_expense(self):
         self.total = 0
@@ -41,7 +56,7 @@ class ExpenseTracker:
             print(f"[{track["id"]}] - Amount: {track["amount"]}$ For {track["description"]} --> {track["category"]}") 
 
 
-
+    
 
 
 
@@ -56,7 +71,7 @@ acc.add_expense(120 , "Transport" , "Taxi")
 
 print(acc.expenses_list)
 
-acc.delete_expense(1)
+acc.delete_expense(2)
 
 print(acc.expenses_list)
 
