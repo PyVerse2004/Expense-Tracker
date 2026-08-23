@@ -62,6 +62,19 @@ class ExpenseTracker:
             if track["amount"] >= minimum:
                 print(track)
 
+    def category_summary(self):
+        summary = {}
+        for track in self.expenses_list:
+            if not track["category"] in summary:
+                summary[track["category"]] = track["amount"]
+            else:
+                for i in summary.keys():
+                    if track["category"] == i :
+                        summary[i] += track["amount"]
+        print(summary)
+
+
+
 
 
 acc = ExpenseTracker()
@@ -70,6 +83,9 @@ acc1 = ExpenseTracker()
 acc.add_expense(250 , "Food" , "Lunch")
 acc.add_expense(120 , "Transport" , "Taxi")
 acc.add_expense(200 , "Transport" , "Snapp")
+acc.add_expense(70 , "Shopping" , "Shoes")
+acc.add_expense(95 , "Shopping" , "Shoes")
+
 
 
 print(acc.expenses_list)
@@ -84,6 +100,9 @@ acc.show_expense()
 
 acc.search_by_category("Transport")
 print("-"*30)
-acc.search_by_date("2026-08-23")
+acc.search_by_date("2026-08-24")
 print("-"*30)
 acc.search_by_amount(200)
+print("-"*30)
+print("-"*30)
+acc.category_summary()
