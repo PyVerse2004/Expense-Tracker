@@ -11,10 +11,6 @@ class ExpenseTracker:
         with open(self.filename , "w") as file :
             json.dump(self.expenses_list , file , indent=4)
 
-    def load_file(self):
-        with open(self.filename , "r") as file :
-            json.load(file)
-
     def add_expense(self, amount , category , description):
         self.amount = amount
         self.category = category
@@ -35,7 +31,6 @@ class ExpenseTracker:
         self.t_id +=1
         
     def delete_expense(self , item):
-
         with open(self.filename , "r") as f:
             t = json.load(f)
 
