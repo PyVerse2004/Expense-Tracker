@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "amount": 250,
+        "category": "Food",
+        "description": "Lunch",
+        "date": null
+    }
+]

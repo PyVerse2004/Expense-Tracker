@@ -9,7 +9,7 @@ class ExpenseTracker:
         
     def save_file(self):
         with open(self.filename , "w") as file :
-            json.dump(self.expenses_list , file)
+            json.dump(self.expenses_list , file , indent=4)
 
     def load_file(self):
         with open(self.filename , "r") as file :
@@ -40,8 +40,9 @@ class ExpenseTracker:
             t = json.load(f)
 
         for track in t:
-            if item == track["id"]:
-                self.expenses_list.remove(track)    
+            if track["id"] == item :
+                self.expenses_list.remove(track)
+                self.save_file()  
 
     def total_expense(self):
         self.total = 0
