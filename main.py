@@ -4,9 +4,14 @@ from datetime import date
 class ExpenseTracker:
     def __init__(self , filename="Expenses.json"):
         self.filename = filename
+        self.load_file()
         self.expenses_list = []
         self.t_id = 1
-        
+
+    def load_file(self):   
+        with open(self.filename , "r") as file :
+            json.load(file)
+
     def save_file(self):
         with open(self.filename , "w") as file :
             json.dump(self.expenses_list , file , indent=4)
@@ -47,8 +52,10 @@ class ExpenseTracker:
             if track["category"] == category:
                 print(track)
     
-
-
+    def search_by_date(self , date):
+        for track in self.expenses_list:
+            if track["date"] == date:
+                print(track)
 
 
 
@@ -72,3 +79,5 @@ print(acc.total_expense())
 acc.show_expense()
 
 acc.search_by_category("Transport")
+print("-"*30)
+acc.search_by_date("2026-08-23")
