@@ -56,7 +56,11 @@ class ExpenseTracker:
         for track in self.expenses_list:
             if track["date"] == date:
                 print(track)
-
+    
+    def search_by_amount(self , minimum):
+        for track in self.expenses_list:
+            if track["amount"] >= minimum:
+                print(track)
 
 
 
@@ -65,7 +69,7 @@ acc1 = ExpenseTracker()
 
 acc.add_expense(250 , "Food" , "Lunch")
 acc.add_expense(120 , "Transport" , "Taxi")
-acc.add_expense(120 , "Transport" , "Snapp")
+acc.add_expense(200 , "Transport" , "Snapp")
 
 
 print(acc.expenses_list)
@@ -81,3 +85,5 @@ acc.show_expense()
 acc.search_by_category("Transport")
 print("-"*30)
 acc.search_by_date("2026-08-23")
+print("-"*30)
+acc.search_by_amount(200)
