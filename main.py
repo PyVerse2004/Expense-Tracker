@@ -82,7 +82,26 @@ class ExpenseTracker:
             total += summary[s]
         print(f"Total : {total}")
             
-
+    def monthly_summary(self , date):
+        summary = {}
+        for track in self.expenses_list:
+            if track["date"][:7] == date:
+                if not track["category"] in summary:
+                    summary[track["category"]] = track["amount"]
+                else:
+                    for i in summary:
+                        if track["category"] == i :
+                            summary[i] += track["amount"]
+        print("=" * 17)
+        print(f"{date} SUMMARY")
+        print("=" * 17)
+        for i in summary:
+            print(f"{i} : ${summary[i]}")
+        print("")
+        total = 0     
+        for s in summary:
+            total += summary[s]
+        print(f"Total : {total}")
 
 
 
@@ -94,7 +113,7 @@ acc.add_expense(120 , "Transport" , "Taxi")
 acc.add_expense(200 , "Transport" , "Snapp")
 acc.add_expense(70 , "Shopping" , "Shoes")
 acc.add_expense(95 , "Shopping" , "Shoes")
-
+acc.add_expense(35 , "Taxes" , "Internet")
 
 
 print(acc.expenses_list)
@@ -115,3 +134,5 @@ acc.search_by_amount(200)
 print("-"*30)
 print("-"*30)
 acc.category_summary()
+print("-"*30)
+acc.monthly_summary("2026-08")
