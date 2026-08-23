@@ -12,14 +12,12 @@ class ExpenseTracker:
             json.dump(self.expenses_list , file , indent=4)
 
     def add_expense(self, amount , category , description):
-        self.date = date.today().isoformat()
-        
         track = {
             "id" : self.t_id , 
             "amount" : amount , 
             "category" : category , 
             "description" : description , 
-            "date" : self.date
+            "date" : date.today().isoformat()
         }
         
         self.expenses_list.append(track)
@@ -27,10 +25,7 @@ class ExpenseTracker:
         self.t_id +=1
         
     def delete_expense(self , item):
-        with open(self.filename , "r") as f:
-            t = json.load(f)
-
-        for track in t:
+        for track in self.expenses_list:
             if track["id"] == item :
                 self.expenses_list.remove(track)
                 self.save_file()  
