@@ -12,15 +12,14 @@ class ExpenseTracker:
             json.dump(self.expenses_list , file , indent=4)
 
     def add_expense(self, amount , category , description):
-        self.date = date.today()
-        self.dt = print(self.date)
+        self.date = date.today().isoformat()
         
         track = {
             "id" : self.t_id , 
             "amount" : amount , 
             "category" : category , 
             "description" : description , 
-            "date" : self.dt
+            "date" : self.date
         }
         
         self.expenses_list.append(track)
