@@ -34,15 +34,19 @@ description_label = tk.Label(
 description_entry = tk.Entry(window)
 
 def get_expense():
-    amount = float(amount_entry.get())
-    category = category_entry.get()
-    description  = description_entry.get()
+    try:
+        amount = float(amount_entry.get())
+        category = category_entry.get()
+        description  = description_entry.get()
 
-    tracker.add_expense(amount , category , description)
+        tracker.add_expense(amount , category , description)
 
-    amount_entry.delete(0 , tk.END)
-    category_entry.delete(0 , tk.END)
-    description_entry.delete(0 , tk.END)
+        amount_entry.delete(0 , tk.END)
+        category_entry.delete(0 , tk.END)
+        description_entry.delete(0 , tk.END)
+        
+    except:
+        print("Invalid Format")
 
 button = tk.Button(
     window,
