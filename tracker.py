@@ -8,12 +8,17 @@ class ExpenseTracker:
         self.t_id = 1
         self.load_file()
 
-    def load_file(self):   
-        with open(self.filename , "r") as file :
-            self.expenses_list = json.load(file)
+    def load_file(self): 
+        try:  
+            with open(self.filename , "r") as file :
+                self.expenses_list = json.load(file)
 
-        # if self.expenses_list:
-        #     self.t_id = max(track["id"] for track in self.expenses_list + 1)
+            if self.expenses_list:
+                self.t_id = max(track["id"] for track in self.expenses_list) + 1
+
+        except(FileNotFoundError,json.JSONDecodeError):
+            self.expenses_list = []
+            self.t_id = 1
 
     def save_file(self):
         with open(self.filename , "w") as file :
@@ -110,33 +115,33 @@ class ExpenseTracker:
 
 
 
-acc = ExpenseTracker()
+# acc = ExpenseTracker()
 
-acc.add_expense(250 , "Food" , "Lunch")
-acc.add_expense(120 , "Transport" , "Taxi")
-acc.add_expense(200 , "Transport" , "Snapp")
-acc.add_expense(70 , "Shopping" , "Shoes")
-acc.add_expense(95 , "Shopping" , "Shoes")
-acc.add_expense(35 , "Taxes" , "Internet")
+# acc.add_expense(250 , "Food" , "Lunch")
+# acc.add_expense(120 , "Transport" , "Taxi")
+# acc.add_expense(200 , "Transport" , "Snapp")
+# acc.add_expense(70 , "Shopping" , "Shoes")
+# acc.add_expense(95 , "Shopping" , "Shoes")
+# acc.add_expense(35 , "Taxes" , "Internet")
 
 
-print(acc.expenses_list)
+# print(acc.expenses_list)
 
-# acc.delete_expense(2)
+# # acc.delete_expense(2)
 
-print(acc.expenses_list)
+# print(acc.expenses_list)
 
-print(acc.total_expense())
+# print(acc.total_expense())
 
-acc.show_expense()
+# acc.show_expense()
 
-acc.search_by_category("Transpor")
-print("-"*30)
-acc.search_by_date("2026-08-23")
-print("-"*30)
-acc.search_by_amount(500)
-print("-"*30)
-print("-"*30)
-acc.category_summary()
-print("-"*30)
-acc.monthly_summary("2026-08")
+# acc.search_by_category("Transpor")
+# print("-"*30)
+# acc.search_by_date("2026-08-23")
+# print("-"*30)
+# acc.search_by_amount(500)
+# print("-"*30)
+# print("-"*30)
+# acc.category_summary()
+# print("-"*30)
+# acc.monthly_summary("2026-08")
