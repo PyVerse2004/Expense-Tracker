@@ -68,9 +68,7 @@ class ExpenseTracker:
             if not track["category"] in summary:
                 summary[track["category"]] = track["amount"]
             else:
-                for i in summary:
-                    if track["category"] == i :
-                        summary[i] += track["amount"]
+                summary[track["category"]] += track["amount"]
         print("=" * 17)
         print("CATEGORY SUMMARY")
         print("=" * 17)
@@ -86,9 +84,7 @@ class ExpenseTracker:
                 if not track["category"] in summary:
                     summary[track["category"]] = track["amount"]
                 else:
-                    for i in summary:
-                        if track["category"] == i :
-                            summary[i] += track["amount"]
+                    summary[track["category"]] += track["amount"]
         print("=" * 17)
         print(f"{date} SUMMARY")
         print("=" * 17)
