@@ -77,10 +77,7 @@ class ExpenseTracker:
         for i in summary:
             print(f"{i} : ${summary[i]}")
         print("")
-        total = 0     
-        for s in summary:
-            total += summary[s]
-        print(f"Total : {total}")
+        print(f"Total : {sum(summary.values())}")
             
     def monthly_summary(self , date):
         summary = {}
@@ -98,10 +95,7 @@ class ExpenseTracker:
         for i in summary:
             print(f"{i} : ${summary[i]}")
         print("")
-        total = 0     
-        for s in summary:
-            total += summary[s]
-        print(f"Total : {total}")
+        print(f"Total : {sum(summary.values())}")
 
 
 
