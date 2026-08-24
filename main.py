@@ -40,17 +40,22 @@ def get_expense():
 
     tracker.add_expense(amount , category , description)
 
+    amount_entry.delete(0 , tk.END)
+    category_entry.delete(0 , tk.END)
+    description_entry.delete(0 , tk.END)
 
 button = tk.Button(
     window,
     text="Add Expense",
     command=get_expense
+    
 )
 
 label.grid(row=0 , column=1)
 
 amount_label.grid(row=1 , column=0)
 amount_entry.grid(row=1 , column=1)
+
 
 category_label.grid(row=2 , column=0)
 category_entry.grid(row=2 , column=1)
@@ -59,4 +64,5 @@ description_label.grid(row=3 , column=0)
 description_entry.grid(row=3 , column=1)
 
 button.grid(row=4 , column=1)
+
 window.mainloop()
