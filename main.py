@@ -48,19 +48,31 @@ class ExpenseTracker:
             print(f"[{track["id"]}] - Amount: {track["amount"]}$ For {track["description"]} --> {track["category"]}") 
 
     def search_by_category(self , category):
+        found = False
         for track in self.expenses_list :
             if track["category"] == category:
                 print(track)
-    
+                found = True
+        if not found:
+            print("No Expense Found")
+
     def search_by_date(self , date):
+        found = False
         for track in self.expenses_list:
             if track["date"] == date:
                 print(track)
+                found = True
+        if not found:
+            print("No Expense Found")
     
     def search_by_amount(self , minimum):
+        found = False
         for track in self.expenses_list:
             if track["amount"] >= minimum:
                 print(track)
+                found = True
+        if not found:
+            print("No Expense Found")
 
     def category_summary(self):
         summary = {}
@@ -116,11 +128,11 @@ print(acc.total_expense())
 
 acc.show_expense()
 
-acc.search_by_category("Transport")
+acc.search_by_category("Transpor")
 print("-"*30)
-acc.search_by_date("2026-08-24")
+acc.search_by_date("2026-08-23")
 print("-"*30)
-acc.search_by_amount(200)
+acc.search_by_amount(500)
 print("-"*30)
 print("-"*30)
 acc.category_summary()
