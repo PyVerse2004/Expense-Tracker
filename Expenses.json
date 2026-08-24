@@ -180,5 +180,19 @@
         "category": "Food",
         "description": "Break Fast",
         "date": "2026-08-25"
+    },
+    {
+        "id": 8,
+        "amount": 20.0,
+        "category": "Food",
+        "description": "Lunch",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 9,
+        "amount": 55.6,
+        "category": "Other",
+        "description": "Walk",
+        "date": "2026-08-25"
     }
 ]

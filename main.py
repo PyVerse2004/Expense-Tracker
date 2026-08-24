@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 from tracker import ExpenseTracker
 
 window = tk.Tk()
@@ -44,16 +45,18 @@ def get_expense():
         amount_entry.delete(0 , tk.END)
         category_entry.delete(0 , tk.END)
         description_entry.delete(0 , tk.END)
-        
-    except:
+
+    except ValueError:
         print("Invalid Format")
 
 button = tk.Button(
     window,
     text="Add Expense",
-    command=get_expense
-    
+    command=get_expense,
 )
+
+table = ttk.Treeview(window)
+columns = ("id" , "date" , "category" , "description" , "amount")
 
 label.grid(row=0 , column=1)
 
@@ -68,5 +71,42 @@ description_label.grid(row=3 , column=0)
 description_entry.grid(row=3 , column=1)
 
 button.grid(row=4 , column=1)
+
+table = ttk.Treeview(
+    window,
+    columns=columns,
+    show="headings"
+)
+
+def refresh_table():
+    for track in tracker.expenses_list:
+        table.insert(
+            "",
+            tk.END,
+            values=(
+                track["id"],
+                track["date"],
+                track["category"],
+                track["description"],
+                track["amount"]
+            )
+        )
+
+table.heading("id" , text="ID")
+table.heading("date" , text="Date")
+table.heading("category" , text="Category")
+table.heading("description" , text="Description")
+table.heading("amount" , text="Amount")
+
+table.column("id" , width=50)
+table.column("date" , width=100)
+table.column("category" , width=100)
+table.column("description" , width=200)
+table.column("amount" , width=100)
+
+table.grid(row=6 , column=1 , columnspan=2 )
+
+refresh_table()
+
 
 window.mainloop()
