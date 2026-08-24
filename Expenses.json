@@ -26,19 +26,6 @@
         "category": "Shopping",
         "description": "Shoes",
         "date": "2026-08-24"
-    },
-    {
-        "id": 5,
-        "amount": 95,
-        "category": "Shopping",
-        "description": "Shoes",
-        "date": "2026-08-24"
-    },
-    {
-        "id": 6,
-        "amount": 35,
-        "category": "Taxes",
-        "description": "Internet",
-        "date": "2026-08-24"
     }
+
 ]

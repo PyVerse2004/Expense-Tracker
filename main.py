@@ -4,13 +4,16 @@ from datetime import date
 class ExpenseTracker:
     def __init__(self , filename="Expenses.json"):
         self.filename = filename
-        self.load_file()
         self.expenses_list = []
         self.t_id = 1
+        self.load_file()
 
     def load_file(self):   
         with open(self.filename , "r") as file :
-            json.load(file)
+            self.expenses_list = json.load(file)
+
+        # if self.expenses_list:
+        #     self.t_id = max(track["id"] for track in self.expenses_list + 1)
 
     def save_file(self):
         with open(self.filename , "w") as file :
@@ -108,7 +111,6 @@ class ExpenseTracker:
 
 
 acc = ExpenseTracker()
-acc1 = ExpenseTracker()
 
 acc.add_expense(250 , "Food" , "Lunch")
 acc.add_expense(120 , "Transport" , "Taxi")
