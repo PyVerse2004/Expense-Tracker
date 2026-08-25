@@ -110,5 +110,47 @@
         "category": "Transport",
         "description": "Snapp",
         "date": "2026-08-26"
+    },
+    {
+        "id": 19,
+        "amount": 250,
+        "category": "Food",
+        "description": "Lunch",
+        "date": "2026-08-26"
+    },
+    {
+        "id": 20,
+        "amount": 120,
+        "category": "Transport",
+        "description": "Taxi",
+        "date": "2026-08-26"
+    },
+    {
+        "id": 21,
+        "amount": 200,
+        "category": "Transport",
+        "description": "Snapp",
+        "date": "2026-08-26"
+    },
+    {
+        "id": 22,
+        "amount": 70,
+        "category": "Shopping",
+        "description": "Shoes",
+        "date": "2026-08-26"
+    },
+    {
+        "id": 23,
+        "amount": 95,
+        "category": "Shopping",
+        "description": "Shoes",
+        "date": "2026-08-26"
+    },
+    {
+        "id": 24,
+        "amount": 35,
+        "category": "Taxes",
+        "description": "Internet",
+        "date": "2026-08-26"
     }
 ]

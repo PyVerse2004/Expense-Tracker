@@ -58,7 +58,7 @@ class ExpenseTracker:
     def search_by_category(self , category):
         found = False
         for track in self.expenses_list :
-            if track["category"] == category:
+            if track["category"].lower() == category.lower():
                 print(track)
                 found = True
         if not found:
