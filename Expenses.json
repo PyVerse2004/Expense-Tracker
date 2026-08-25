@@ -194,5 +194,26 @@
         "category": "Other",
         "description": "Walk",
         "date": "2026-08-25"
+    },
+    {
+        "id": 10,
+        "amount": 20.0,
+        "category": "Food",
+        "description": "Lunch",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 11,
+        "amount": 30.0,
+        "category": "Food",
+        "description": "Dinner",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 12,
+        "amount": 600.0,
+        "category": "Other",
+        "description": "Tax",
+        "date": "2026-08-25"
     }
 ]

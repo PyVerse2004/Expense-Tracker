@@ -46,6 +46,8 @@ def get_expense():
         category_entry.delete(0 , tk.END)
         description_entry.delete(0 , tk.END)
 
+        refresh_table()
+
     except ValueError:
         print("Invalid Format")
 
@@ -79,6 +81,7 @@ table = ttk.Treeview(
 )
 
 def refresh_table():
+    table.delete(*table.get_children())
     for track in tracker.expenses_list:
         table.insert(
             "",
@@ -91,6 +94,7 @@ def refresh_table():
                 track["amount"]
             )
         )
+    
 
 table.heading("id" , text="ID")
 table.heading("date" , text="Date")
