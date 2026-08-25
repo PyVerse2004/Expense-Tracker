@@ -4,139 +4,6 @@
         "amount": 250,
         "category": "Food",
         "description": "Lunch",
-        "date": "2026-08-24"
-    },
-    {
-        "id": 2,
-        "amount": 120,
-        "category": "Transport",
-        "description": "Taxi",
-        "date": "2026-08-24"
-    },
-    {
-        "id": 3,
-        "amount": 200,
-        "category": "Transport",
-        "description": "Snapp",
-        "date": "2026-08-24"
-    },
-    {
-        "id": 4,
-        "amount": 70,
-        "category": "Shopping",
-        "description": "Shoes",
-        "date": "2026-08-24"
-    },
-    {
-        "id": 1,
-        "amount": 250,
-        "category": "Food",
-        "description": "Lunch",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 2,
-        "amount": 120,
-        "category": "Transport",
-        "description": "Taxi",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 3,
-        "amount": 200,
-        "category": "Transport",
-        "description": "Snapp",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 4,
-        "amount": 70,
-        "category": "Shopping",
-        "description": "Shoes",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 5,
-        "amount": 95,
-        "category": "Shopping",
-        "description": "Shoes",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 6,
-        "amount": 35,
-        "category": "Taxes",
-        "description": "Internet",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 1,
-        "amount": 20.0,
-        "category": "Other",
-        "description": "Charge",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 2,
-        "amount": 20.0,
-        "category": "Other",
-        "description": "Charge",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 1,
-        "amount": 250,
-        "category": "Food",
-        "description": "Lunch",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 2,
-        "amount": 120,
-        "category": "Transport",
-        "description": "Taxi",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 3,
-        "amount": 200,
-        "category": "Transport",
-        "description": "Snapp",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 4,
-        "amount": 70,
-        "category": "Shopping",
-        "description": "Shoes",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 5,
-        "amount": 95,
-        "category": "Shopping",
-        "description": "Shoes",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 6,
-        "amount": 35,
-        "category": "Taxes",
-        "description": "Internet",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 1,
-        "amount": 200.0,
-        "category": "Other",
-        "description": "Pool",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 1,
-        "amount": 250,
-        "category": "Food",
-        "description": "Lunch",
         "date": "2026-08-25"
     },
     {
@@ -214,6 +81,34 @@
         "amount": 600.0,
         "category": "Other",
         "description": "Tax",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 13,
+        "amount": 68.0,
+        "category": "Food",
+        "description": "BreakFast",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 14,
+        "amount": 10.4,
+        "category": "Other",
+        "description": "Travel",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 15,
+        "amount": 6.0,
+        "category": "Food",
+        "description": "Lunch",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 16,
+        "amount": 100.0,
+        "category": "Transport",
+        "description": "Taxi",
         "date": "2026-08-25"
     }
 ]

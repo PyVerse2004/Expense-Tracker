@@ -42,11 +42,14 @@ def get_expense():
 
         tracker.add_expense(amount , category , description)
 
+        refresh_table()
+
         amount_entry.delete(0 , tk.END)
         category_entry.delete(0 , tk.END)
         description_entry.delete(0 , tk.END)
 
-        refresh_table()
+        update_total()
+        
 
     except ValueError:
         print("Invalid Format")
@@ -95,6 +98,15 @@ def refresh_table():
             )
         )
     
+total_label = tk.Label(
+    window,
+    text="Total Expense : "
+)
+
+def update_total():
+    # tracker.total_expense()
+    total_label.config(text=f"Total Expense : {tracker.total_expense()}")
+    
 
 table.heading("id" , text="ID")
 table.heading("date" , text="Date")
@@ -109,8 +121,9 @@ table.column("description" , width=200)
 table.column("amount" , width=100)
 
 table.grid(row=6 , column=1 , columnspan=2 )
+total_label.grid(row=7 , column=0 , columnspan=2)
 
 refresh_table()
-
+update_total()
 
 window.mainloop()
