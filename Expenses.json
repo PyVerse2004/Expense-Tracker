@@ -1,23 +1,9 @@
 [
     {
-        "id": 1,
-        "amount": 250,
-        "category": "Food",
-        "description": "Lunch",
-        "date": "2026-08-25"
-    },
-    {
         "id": 2,
         "amount": 120,
         "category": "Transport",
         "description": "Taxi",
-        "date": "2026-08-25"
-    },
-    {
-        "id": 3,
-        "amount": 200,
-        "category": "Transport",
-        "description": "Snapp",
         "date": "2026-08-25"
     },
     {
@@ -110,5 +96,19 @@
         "category": "Transport",
         "description": "Taxi",
         "date": "2026-08-25"
+    },
+    {
+        "id": 17,
+        "amount": 150.0,
+        "category": "Food",
+        "description": "Lunch",
+        "date": "2026-08-25"
+    },
+    {
+        "id": 18,
+        "amount": 100.0,
+        "category": "Transport",
+        "description": "Snapp",
+        "date": "2026-08-26"
     }
 ]

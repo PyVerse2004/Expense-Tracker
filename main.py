@@ -123,7 +123,32 @@ table.column("amount" , width=100)
 table.grid(row=6 , column=1 , columnspan=2 )
 total_label.grid(row=7 , column=0 , columnspan=2)
 
+def delete_expense():
+    selected = table.selection()
+
+    if not selected:
+        print("Please select an expense")
+
+    item = table.item(selected[0])
+    expense_id = item["values"][0]
+
+    tracker.delete_expense(expense_id)
+
+    refresh_table()
+    update_total()
+
+delete_button = tk.Button(
+    window,
+    text="Delete",
+    command=delete_expense
+)
+
+delete_button.grid(row=7 , column=2 , columnspan=2)
+
+
 refresh_table()
 update_total()
+
+
 
 window.mainloop()
