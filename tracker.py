@@ -56,14 +56,11 @@ class ExpenseTracker:
             print(f"[{track["id"]}] - Amount: {track["amount"]}$ For {track["description"]} --> {track["category"]}") 
 
     def search_by_category(self , category):
-        found = False
+        results =[]
         for track in self.expenses_list :
             if track["category"].lower() == category.lower():
-                print(track)
-                found = True
-        if not found:
-            print("No Expense Found")
-
+                results.append(track)
+        return results
     def search_by_date(self , date):
         found = False
         for track in self.expenses_list:
