@@ -60,7 +60,40 @@ button = tk.Button(
     command=get_expense,
 )
 
+search_entry = tk.Entry(window)
+
+def search_expenses():
+    category = search_entry.get()
+
+    results = tracker.search_by_category(category)
+
+    table.delete(*table.get_children())
+
+    for track in results:
+        table.insert(
+            "",
+            tk.END,
+            values=(
+                track["id"],
+                track["date"],
+                track["category"],
+                track["description"],
+                track["amount"]
+            )
+        )
+    
+
+search_button = tk.Button(
+    window,
+    text="Search",
+    command=search_expenses
+)
+
 table = ttk.Treeview(window)
+
+search_entry.grid(row=4 , column=2)
+search_button.grid(row=4 , column=3 , columnspan=2)
+
 columns = ("id" , "date" , "category" , "description" , "amount")
 
 label.grid(row=0 , column=1)
