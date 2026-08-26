@@ -63,13 +63,6 @@
         "date": "2026-08-25"
     },
     {
-        "id": 12,
-        "amount": 600.0,
-        "category": "Other",
-        "description": "Tax",
-        "date": "2026-08-25"
-    },
-    {
         "id": 13,
         "amount": 68.0,
         "category": "Food",
@@ -151,6 +144,13 @@
         "amount": 35,
         "category": "Taxes",
         "description": "Internet",
+        "date": "2026-08-26"
+    },
+    {
+        "id": 25,
+        "amount": 30.0,
+        "category": "Food",
+        "description": "Lunch",
         "date": "2026-08-26"
     }
 ]

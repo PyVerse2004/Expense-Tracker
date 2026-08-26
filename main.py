@@ -48,7 +48,7 @@ def get_expense():
         category_entry.delete(0 , tk.END)
         description_entry.delete(0 , tk.END)
 
-        update_total()
+        update_total(tracker.expenses_list)
         
 
     except ValueError:
@@ -81,7 +81,7 @@ def search_expenses():
                 track["amount"]
             )
         )
-    
+    update_total(results)
 
 search_button = tk.Button(
     window,
@@ -93,6 +93,8 @@ table = ttk.Treeview(window)
 
 def clear_search():
     refresh_table()
+    update_total(tracker.expenses_list)
+    
     search_entry.delete(0 , tk.END)
 
 clear_search_button = tk.Button(
@@ -147,9 +149,9 @@ total_label = tk.Label(
     text="Total Expense : "
 )
 
-def update_total():
-    # tracker.total_expense()
-    total_label.config(text=f"Total Expense : {tracker.total_expense()}")
+def update_total(expenses):
+    total = sum(track["amount"] for track in expenses)
+    total_label.config(text=f"Total Expense : {total}")
     
 
 table.heading("id" , text="ID")
@@ -179,7 +181,7 @@ def delete_expense():
     tracker.delete_expense(expense_id)
 
     refresh_table()
-    update_total()
+    update_total(tracker.expenses_list)
 
 delete_button = tk.Button(
     window,
@@ -191,7 +193,7 @@ delete_button.grid(row=7 , column=2 , columnspan=2)
 
 
 refresh_table()
-update_total()
+update_total(tracker.expenses_list)
 
 
 
