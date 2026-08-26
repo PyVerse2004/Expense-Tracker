@@ -61,23 +61,20 @@ class ExpenseTracker:
             if track["category"].lower() == category.lower():
                 results.append(track)
         return results
+    
     def search_by_date(self , date):
-        found = False
+        results =[]
         for track in self.expenses_list:
             if track["date"] == date:
-                print(track)
-                found = True
-        if not found:
-            print("No Expense Found")
+                results.append(track)                
+        return results
     
     def search_by_amount(self , minimum):
-        found = False
+        results =[]
         for track in self.expenses_list:
             if track["amount"] >= minimum:
-                print(track)
-                found = True
-        if not found:
-            print("No Expense Found")
+                results.append(track)
+        return results
 
     def category_summary(self):
         summary = {}
