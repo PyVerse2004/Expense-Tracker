@@ -63,10 +63,21 @@ button = tk.Button(
 search_entry = tk.Entry(window)
 
 def search_expenses():
-    category = search_entry.get()
+    search_value = search_entry.get()
+    search_method = search_type.get()
 
-    results = tracker.search_by_category(category)
+    if search_method == "Category" :
+        results = tracker.search_by_category(search_value) 
 
+    elif search_method == "Date" :
+        results = tracker.search_by_date(search_value)
+
+    elif search_method == "Min" :
+        results = tracker.search_by_amount(float(search_value))
+
+    else:
+        return
+    
     table.delete(*table.get_children())
 
     for track in results:
@@ -82,6 +93,13 @@ def search_expenses():
             )
         )
     update_total(results)
+
+search_type = ttk.Combobox(
+    window,
+    values=["Category" , "Date" , "Min"],
+    state="readonly"
+)
+search_type.set("Category")
 
 search_button = tk.Button(
     window,
@@ -103,9 +121,10 @@ clear_search_button = tk.Button(
     command=clear_search
 )
 
-search_entry.grid(row=4 , column=2)
-search_button.grid(row=4 , column=3 , columnspan=2)
-clear_search_button.grid(row=4 , column=5 , columnspan=2)
+search_type.grid(row=5 , column=3)
+search_entry.grid(row=5 , column=0)
+search_button.grid(row=5 , column=1)
+clear_search_button.grid(row=5 , column=2)
 
 columns = ("id" , "date" , "category" , "description" , "amount")
 
@@ -166,15 +185,15 @@ table.column("category" , width=100)
 table.column("description" , width=200)
 table.column("amount" , width=100)
 
-table.grid(row=6 , column=1 , columnspan=2 )
-total_label.grid(row=7 , column=0 , columnspan=2)
+table.grid(row=7 , column=0 , columnspan=2 )
+total_label.grid(row=8 , column=0 , columnspan=2)
 
 def delete_expense():
     selected = table.selection()
 
     if not selected:
         print("Please select an expense")
-
+        return
     item = table.item(selected[0])
     expense_id = item["values"][0]
 
