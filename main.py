@@ -91,8 +91,19 @@ search_button = tk.Button(
 
 table = ttk.Treeview(window)
 
+def clear_search():
+    refresh_table()
+    search_entry.delete(0 , tk.END)
+
+clear_search_button = tk.Button(
+    window,
+    text="Clear Search",
+    command=clear_search
+)
+
 search_entry.grid(row=4 , column=2)
 search_button.grid(row=4 , column=3 , columnspan=2)
+clear_search_button.grid(row=4 , column=5 , columnspan=2)
 
 columns = ("id" , "date" , "category" , "description" , "amount")
 
