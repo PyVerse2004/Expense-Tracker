@@ -84,13 +84,6 @@
         "date": "2026-08-25"
     },
     {
-        "id": 16,
-        "amount": 100.0,
-        "category": "Transport",
-        "description": "Taxi",
-        "date": "2026-08-25"
-    },
-    {
         "id": 17,
         "amount": 150.0,
         "category": "Food",

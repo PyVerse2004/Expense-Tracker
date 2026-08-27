@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 from tracker import ExpenseTracker
 
 window = tk.Tk()
@@ -36,23 +37,44 @@ description_entry = tk.Entry(window)
 
 def get_expense():
     try:
-        amount = float(amount_entry.get())
-        category = category_entry.get()
-        description  = description_entry.get()
-
-        tracker.add_expense(amount , category , description)
-
-        refresh_table()
-
-        amount_entry.delete(0 , tk.END)
-        category_entry.delete(0 , tk.END)
-        description_entry.delete(0 , tk.END)
-
-        update_total(tracker.expenses_list)
-        
-
+        amount = float(amount)
     except ValueError:
-        print("Invalid Format")
+        messagebox.showerror("Error" , "Amount Must Be A Number")
+        return
+    amount = float(amount_entry.get())
+    category = category_entry.get()
+    description  = description_entry.get()
+
+    if not amount:
+        messagebox.showerror("Error" , "Amount Is Required.")
+        return
+    
+    if not category:
+        messagebox.showerror("Error" , "Category Is Required.")
+        return
+    
+    if not description:
+        messagebox.showerror("Error" , "Description Is Required.")
+        return
+
+    try:
+        amount =float(amount)
+    except ValueError:
+        messagebox.showerror("Error" , "Amount Must Be A Number")
+        return
+
+    if amount <= 0:
+            messagebox.showerror("Error" , "Amount Must Be greater Than Zero")
+            return
+    
+    tracker.add_expense(amount , category , description)
+
+    refresh_table()
+    update_total(tracker.expenses_list)
+
+    amount_entry.delete(0 , tk.END)
+    category_entry.delete(0 , tk.END)
+    description_entry.delete(0 , tk.END)
 
 button = tk.Button(
     window,
@@ -64,6 +86,11 @@ search_entry = tk.Entry(window)
 
 def search_expenses():
     search_value = search_entry.get()
+
+    if not search_value:
+        messagebox.showwarning("Warning" , "Please Enter A Search Value")
+        return
+    
     search_method = search_type.get()
 
     if search_method == "Category" :
@@ -73,7 +100,13 @@ def search_expenses():
         results = tracker.search_by_date(search_value)
 
     elif search_method == "Min" :
-        results = tracker.search_by_amount(float(search_value))
+        try:
+            minimum = float(search_value)
+
+        except ValueError:
+            messagebox.showerror("Error" , "Min Amount Must Be A Number")
+            return
+        results = tracker.search_by_amount(float(minimum))
 
     else:
         return
@@ -192,8 +225,13 @@ def delete_expense():
     selected = table.selection()
 
     if not selected:
-        print("Please select an expense")
+        messagebox.showwarning("Warning" , "Please Select An Expnese To Delete")
         return
+
+    answer = messagebox.askyesno("Confirm Delete" , "Are You Sure Want To Delete")
+    if not answer:
+        return
+    
     item = table.item(selected[0])
     expense_id = item["values"][0]
 
@@ -201,6 +239,7 @@ def delete_expense():
 
     refresh_table()
     update_total(tracker.expenses_list)
+
 
 delete_button = tk.Button(
     window,
