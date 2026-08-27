@@ -36,12 +36,7 @@ description_label = tk.Label(
 description_entry = tk.Entry(window)
 
 def get_expense():
-    try:
-        amount = float(amount)
-    except ValueError:
-        messagebox.showerror("Error" , "Amount Must Be A Number")
-        return
-    amount = float(amount_entry.get())
+    amount = amount_entry.get()
     category = category_entry.get()
     description  = description_entry.get()
 
@@ -58,7 +53,7 @@ def get_expense():
         return
 
     try:
-        amount =float(amount)
+        amount = float(amount)
     except ValueError:
         messagebox.showerror("Error" , "Amount Must Be A Number")
         return
